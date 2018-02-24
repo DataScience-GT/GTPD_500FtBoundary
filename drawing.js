@@ -5,10 +5,10 @@ function getRandomColor() {
 }
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 5,
+    zoom: 15,
     center: {
-      'lat': 33.749,
-      'lng': -84.388
+      'lat': 33.77679,
+      'lng': -84.400279
     },
     mapTypeId: 'terrain'
   });
@@ -23,7 +23,7 @@ function initMap() {
       shapes[i]['coordinates'][j] = new google.maps.MVCArray(shapes[i]['coordinates'][j]);
     }
     var coors = new google.maps.MVCArray(shapes[i]['coordinates'])
-    var rndcolor = getRandomColor()
+    var rndcolor = "#1133FF"
     var path = new google.maps.Polygon({
       paths: coors,
       strokeColor: rndcolor,
@@ -45,7 +45,7 @@ function initMap() {
       o_shapes[i]['coordinates'][j] = new google.maps.MVCArray(o_shapes[i]['coordinates'][j]);
     }
     var ncoors = new google.maps.MVCArray(o_shapes[i]['coordinates'])
-    var nrndcolor = getRandomColor()
+    var nrndcolor = "#333333"
     var npath = new google.maps.Polygon({
       paths: ncoors,
       strokeColor: nrndcolor,
