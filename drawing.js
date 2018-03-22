@@ -12,28 +12,7 @@ function initMap() {
     },
     mapTypeId: 'terrain'
   });
-  for (i in shapes) {
-    //process coordinates
-    for (j in shapes[i]['coordinates']) {
-      for (k in shapes[i]['coordinates'][j]) {
-        shapes[i]['coordinates'][j][k] = new google.maps.LatLng(
-          shapes[i]['coordinates'][j][k]['lat'],
-          shapes[i]['coordinates'][j][k]['lng']);
-      }
-      shapes[i]['coordinates'][j] = new google.maps.MVCArray(shapes[i]['coordinates'][j]);
-    }
-    var coors = new google.maps.MVCArray(shapes[i]['coordinates'])
-    var rndcolor = "#1133FF"
-    var path = new google.maps.Polygon({
-      paths: coors,
-      strokeColor: rndcolor,
-      strokeOpacity: 0.8,
-      strokeWeight: 3,
-      fillColor: rndcolor,
-      flilOpacity: 0.35
-    });
-    path.setMap(map);
-  }
+
   for (i in o_shapes) {
     //process coordinates
     for (j in o_shapes[i]['coordinates']) {
@@ -45,15 +24,37 @@ function initMap() {
       o_shapes[i]['coordinates'][j] = new google.maps.MVCArray(o_shapes[i]['coordinates'][j]);
     }
     var ncoors = new google.maps.MVCArray(o_shapes[i]['coordinates'])
-    var nrndcolor = "#333333"
+    var nrndcolor = "#1D3C59"
     var npath = new google.maps.Polygon({
       paths: ncoors,
       strokeColor: nrndcolor,
       strokeOpacity: 0.8,
       strokeWeight: 3,
       fillColor: nrndcolor,
-      flilOpacity: 0.35
+      fillOpacity: 0.35
     });
     npath.setMap(map);
+  }
+  for (i in shapes) {
+    //process coordinates
+    for (j in shapes[i]['coordinates']) {
+      for (k in shapes[i]['coordinates'][j]) {
+        shapes[i]['coordinates'][j][k] = new google.maps.LatLng(
+          shapes[i]['coordinates'][j][k]['lat'],
+          shapes[i]['coordinates'][j][k]['lng']);
+      }
+      shapes[i]['coordinates'][j] = new google.maps.MVCArray(shapes[i]['coordinates'][j]);
+    }
+    var coors = new google.maps.MVCArray(shapes[i]['coordinates'])
+    var rndcolor = "#FCFCFC"
+    var path = new google.maps.Polygon({
+      paths: coors,
+      strokeColor: rndcolor,
+      strokeOpacity: 0.8,
+      strokeWeight: 3,
+      fillColor: rndcolor,
+      fillOpacity: 1
+    });
+    path.setMap(map);
   }
 }
